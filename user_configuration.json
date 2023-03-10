@@ -36,5 +36,6 @@
     },
     "script": "guided",
     "silent": false,
+    "swap": false,
     "version": "2.5.3"
 }
