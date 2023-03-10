@@ -1,0 +1,40 @@
+{
+    "bootloader": "grub-install",
+    "config_version": "2.5.3",
+    "debug": false,
+    "desktop-environment": "xfce4",
+    "gfx_driver": "All open-source (default)",
+    "harddrives": [
+        "/dev/sda"
+    ],
+    "mirror-region": {
+        "Japan": {
+            "http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch": true,
+            "http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/$repo/os/$arch": true,
+            "http://mirrors.cat.net/archlinux/$repo/os/$arch": true,
+            "https://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch": true,
+            "https://mirror.saebasol.org/archlinux/$repo/os/$arch": true,
+            "https://mirrors.cat.net/archlinux/$repo/os/$arch": true
+        }
+    },
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
+    },
+    "no_pkg_lookups": false,
+    "offline": false,
+    "packages": [
+        "base-devel",
+        "git"
+    ],
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
+    },
+    "script": "guided",
+    "silent": false,
+    "version": "2.5.3"
+}
