@@ -10,5 +10,5 @@
 7. Install Chrome
     1. `mkdir aur; cd aur`
     2. `git clone https://aur.archlinux.org/google-chrome.git`
-    3. `makepkg -si`
+    3. `makepkg --syncdeps --install`
 8. ssh-keygen: `ssh-keygen -t ed25519 -a 100`
