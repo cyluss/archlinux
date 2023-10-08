@@ -43,7 +43,10 @@
     "packages": [
         "base-devel",
         "git",
-        "ibus-hangul"
+        "i3-wm",
+        "ibus-hangul",
+        "nano",
+        "xterm"
     ],
     "parallel downloads": 0,
     "profile_config": {
