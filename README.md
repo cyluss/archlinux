@@ -2,13 +2,17 @@
 
 ## Installation (2023)
 1. Boot from ISO
-2. Do `archinstall`, enter user credential and save cred file to `/root`
-3. `curl -O https://cyluss.github.io/archlinux/archinstall.sh | bash`
-4. Review install config, and proceed
-5. No chroot, `reboot`
-6. Log in as user account
-7. Install Chrome
-    1. `mkdir aur; cd aur`
-    2. `git clone https://aur.archlinux.org/google-chrome.git`
-    3. `makepkg --syncdeps --install`
-8. ssh-keygen: `ssh-keygen -t ed25519 -a 100`
+2. `archinstall --config https://cyluss.github.io/archlinux/user_configuration.json`
+3. Add user and disk config, and proceed
+4. No chroot, `reboot`
+5. Log in as user account
+
+# Install AUR packages
+1. `mkdir aur; cd aur`
+2. Install Chrome
+    1. `git clone https://aur.archlinux.org/google-chrome.git  && pushd "$_"`
+    2. `makepkg --syncdeps --install; popd`
+2. Install Spoqa Han Sans
+    1. `git clone https://aur.archlinux.org/spoqa-han-sans.git && pushd "$_"`
+    2. `makepkg --syncdeps --install; popd`
+3. ssh-keygen: `ssh-keygen -t ed25519 -a 100`
