@@ -1,13 +1,13 @@
-# archlinux
+# archlinux (2023)
 
-## Installation (2023)
+## Provisioning
 1. Boot from ISO
 2. `archinstall --config https://cyluss.github.io/archlinux/user_configuration.json`
 3. Add user and disk config, and proceed
 4. No chroot, `reboot`
 5. Log in as user account
 
-# Install AUR packages
+## AUR packages
 1. `mkdir aur; cd aur`
 2. Install Chrome
     1. `git clone https://aur.archlinux.org/google-chrome.git  && pushd "$_"`
