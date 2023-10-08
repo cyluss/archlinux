@@ -42,6 +42,7 @@
     "offline": false,
     "packages": [
         "base-devel",
+        "dmenu",
         "git",
         "i3",
         "ibus-hangul",
