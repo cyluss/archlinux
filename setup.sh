@@ -36,5 +36,11 @@ echo "=== TTY light theme ==="
 sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet vt.default_red=255,204,0,128,0,128,0,0 vt.default_grn=255,0,128,128,0,0,128,0 vt.default_blu=255,0,0,0,204,128,128,0"/' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
+echo "=== SKU custom ==="
+SKU_CUSTOM="${SKU_CUSTOM:-}"
+if [ -n "$SKU_CUSTOM" ]; then
+    curl -sL "$BASE_URL/$SKU_CUSTOM" | bash
+fi
+
 echo "=== done ==="
 echo "Run 'sway' to start"

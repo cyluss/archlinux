@@ -43,9 +43,8 @@ aws s3 cp s3://bucket/archlinux-vm.img.zst - | zstd -d | dd of=/dev/sda bs=4M
    ```
 3. `archinstall --config-url https://cyluss.github.io/archlinux/mbp_2015/user_configuration.json`
 4. No chroot, `reboot`
-5. `curl -sL https://cyluss.github.io/archlinux/setup.sh | bash`
-6. Fix WiFi: `sudo python <(curl -sL https://cyluss.github.io/archlinux/mbp_2015/fix_wifi.py)`
-7. `sway`
+5. `SKU_CUSTOM=mbp_2015/setup_custom.sh curl -sL https://cyluss.github.io/archlinux/setup.sh | bash`
+6. `sway`
 
 ### Backup / Restore
 ```bash
