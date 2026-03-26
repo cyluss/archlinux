@@ -196,7 +196,7 @@ client.focused_inactive #dddddd #f5f5f5 #333333 #484e50   #dddddd
 client.unfocused        #eeeeee #fafafa #888888 #292d2e   #eeeeee
 client.urgent           #eeeeee #ffffff #990000 #990000   #eeeeee
 bar {
-        status_command i3status | /home/kang/.config/i3/i3status-wrapper.py
+        status_command /home/kang/.config/sway/status.py
         position top
         colors {
             background #ffffff
@@ -212,7 +212,7 @@ bar {
 bar {
         id bar-help
         position bottom
-        status_command /home/kang/.config/i3/help-bar.py
+        status_command /home/kang/.config/sway/help-bar.py
         colors {
             background #ffffff
             statusline #888888
