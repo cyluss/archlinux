@@ -51,6 +51,7 @@
         "i3",
         "ibus-hangul",
         "nano",
+        "openssh",
         "xterm"
     ],
     "parallel_downloads": 0,
@@ -64,7 +65,7 @@
         }
     },
     "script": "guided",
-    "services": [],
+    "services": ["sshd"],
     "swap": {
         "algorithm": "zstd",
         "enabled": false

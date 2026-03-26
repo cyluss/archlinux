@@ -1,5 +1,18 @@
 # archlinux
 
+## Target Hardware (SKUs)
+
+| | VM (VirtualBox) | MBP 2015 (bare metal) |
+|---|---|---|
+| **config** | [user_configuration.json](user_configuration.json) | [mbp_2015/user_configuration.json](mbp_2015/user_configuration.json) |
+| **gfx_driver** | VirtualBox (open-source) | Intel (open-source) |
+| **network** | iso | nm (NetworkManager) |
+| **kernels** | linux | linux, linux-lts |
+| **extra packages** | -- | iw, linux-firmware, openssh, wireless_tools |
+| **post-install** | -- | [fix_wifi.py](mbp_2015/fix_wifi.py) |
+| **hostname** | archlinux | mbp2015 |
+| **dd portable** | within same VM type | within same MBP |
+
 ## VM (VirtualBox)
 
 ### Provisioning
@@ -19,6 +32,15 @@
     2. `makepkg --syncdeps --install; popd`
 3. ssh-keygen: `ssh-keygen -t ed25519 -a 100`
 
+### Backup / Restore
+```bash
+# Backup (from host)
+dd if=/dev/sda bs=4M | zstd | aws s3 cp - s3://bucket/archlinux-vm.img.zst
+
+# Restore
+aws s3 cp s3://bucket/archlinux-vm.img.zst - | zstd -d | dd of=/dev/sda bs=4M
+```
+
 ## MBP 2015 (bare metal)
 
 ### Provisioning
@@ -35,6 +57,15 @@
    curl -O https://cyluss.github.io/archlinux/mbp_2015/fix_wifi.py
    sudo python fix_wifi.py
    ```
+
+### Backup / Restore
+```bash
+# Backup (via TB Ethernet SSH)
+dd if=/dev/sda bs=4M | zstd | aws s3 cp - s3://bucket/mbp2015-full.img.zst
+
+# Restore (from Arch live USB)
+aws s3 cp s3://bucket/mbp2015-full.img.zst - | zstd -d | dd of=/dev/sda bs=4M
+```
 
 ### Docs
 - [Broadcom WiFi fix](mbp_2015/broadcom_wifi.md) -- BCM43602 stabilization, TB Ethernet debugging
