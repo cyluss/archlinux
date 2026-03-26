@@ -40,15 +40,12 @@ aws s3 cp s3://bucket/archlinux-vm.img.zst - | zstd -d | dd of=/dev/sda bs=4M
 2. Connect TB-to-Ethernet adapter for stable network, or direct cable to macOS:
    ```bash
    ip addr add 192.168.2.2/24 dev enp0s20f0
-   curl -O http://192.168.2.1:8000/fix_wifi.py
    ```
 3. `archinstall --config-url https://cyluss.github.io/archlinux/mbp_2015/user_configuration.json`
 4. No chroot, `reboot`
-5. Fix WiFi:
-   ```bash
-   curl -O https://cyluss.github.io/archlinux/mbp_2015/fix_wifi.py
-   sudo python fix_wifi.py
-   ```
+5. `curl -sL https://cyluss.github.io/archlinux/setup.sh | bash`
+6. Fix WiFi: `sudo python <(curl -sL https://cyluss.github.io/archlinux/mbp_2015/fix_wifi.py)`
+7. `sway`
 
 ### Backup / Restore
 ```bash

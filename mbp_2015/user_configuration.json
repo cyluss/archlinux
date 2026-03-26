@@ -1,9 +1,15 @@
 {
-    "additional-repositories": [],
+    "app_config": null,
     "archinstall-language": "English",
-    "bootloader": "Grub",
-    "config_version": "2.6.0",
-    "debug": false,
+    "auth_config": {},
+    "bootloader_config": {
+        "bootloader": "Grub",
+        "removable": true,
+        "uki": false
+    },
+    "custom_commands": [
+        "echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /mnt/etc/sudoers.d/wheel"
+    ],
     "disk_config": null,
     "hostname": "mbp2015",
     "kernels": [
@@ -16,7 +22,8 @@
         "sys_lang": "en_US"
     },
     "mirror_config": {
-        "custom_mirrors": [],
+        "custom_repositories": [],
+        "custom_servers": [],
         "mirror_regions": {
             "South Korea": [
                 "https://seoul.mirror.pkgbuild.com/$repo/os/$arch",
@@ -33,40 +40,37 @@
                 "http://mirror.funami.tech/arch/$repo/os/$arch",
                 "http://ftp.lanet.kr/pub/archlinux/$repo/os/$arch"
             ]
-        }
+        },
+        "optional_repositories": []
     },
     "network_config": {
         "type": "nm"
     },
-    "no_pkg_lookups": false,
     "ntp": true,
-    "offline": false,
     "packages": [
         "base-devel",
-        "dmenu",
+        "bemenu-wayland",
+        "foot",
         "git",
-        "i3",
         "ibus-hangul",
         "iw",
         "linux-firmware",
         "nano",
+        "noto-fonts-cjk",
         "openssh",
-        "wireless_tools",
-        "xterm"
+        "sway",
+        "swaybg",
+        "ttf-dejavu",
+        "wireless_tools"
     ],
-    "parallel downloads": 0,
-    "profile_config": {
-        "gfx_driver": "Intel (open-source)",
-        "greeter": null,
-        "profile": {
-            "custom_settings": {},
-            "details": [],
-            "main": "Xorg"
-        }
-    },
+    "parallel_downloads": 0,
+    "profile_config": null,
     "script": "guided",
-    "silent": false,
-    "swap": false,
+    "services": ["sshd"],
+    "swap": {
+        "algorithm": "zstd",
+        "enabled": false
+    },
     "timezone": "Asia/Seoul",
-    "version": "2.6.0"
+    "version": "3.0.15"
 }
