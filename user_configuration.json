@@ -45,13 +45,16 @@
     },
     "ntp": true,
     "packages": [
+        "alacritty",
         "base-devel",
         "dmenu",
         "git",
         "i3",
         "ibus-hangul",
         "nano",
+        "noto-fonts-cjk",
         "openssh",
+        "ttf-dejavu",
         "xterm"
     ],
     "parallel_downloads": 0,

@@ -1,0 +1,9 @@
+[colors.primary]
+background = '#ffffff'
+foreground = '#000000'
+
+[font]
+size = 8.0
+
+[font.normal]
+family = 'DejaVu Sans Mono'
