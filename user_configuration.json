@@ -1,9 +1,13 @@
 {
-    "additional-repositories": [],
+    "app_config": null,
     "archinstall-language": "English",
-    "bootloader": "Grub",
-    "config_version": "2.6.0",
-    "debug": false,
+    "auth_config": {},
+    "bootloader_config": {
+        "bootloader": "Grub",
+        "removable": true,
+        "uki": false
+    },
+    "custom_commands": [],
     "disk_config": null,
     "hostname": "archlinux",
     "kernels": [
@@ -15,7 +19,8 @@
         "sys_lang": "en_US"
     },
     "mirror_config": {
-        "custom_mirrors": [],
+        "custom_repositories": [],
+        "custom_servers": [],
         "mirror_regions": {
             "South Korea": [
                 "https://seoul.mirror.pkgbuild.com/$repo/os/$arch",
@@ -32,14 +37,13 @@
                 "http://mirror.funami.tech/arch/$repo/os/$arch",
                 "http://ftp.lanet.kr/pub/archlinux/$repo/os/$arch"
             ]
-        }
+        },
+        "optional_repositories": []
     },
     "network_config": {
         "type": "iso"
     },
-    "no_pkg_lookups": false,
     "ntp": true,
-    "offline": false,
     "packages": [
         "base-devel",
         "dmenu",
@@ -49,7 +53,7 @@
         "nano",
         "xterm"
     ],
-    "parallel downloads": 0,
+    "parallel_downloads": 0,
     "profile_config": {
         "gfx_driver": "VirtualBox (open-source)",
         "greeter": null,
@@ -60,8 +64,11 @@
         }
     },
     "script": "guided",
-    "silent": false,
-    "swap": false,
+    "services": [],
+    "swap": {
+        "algorithm": "zstd",
+        "enabled": false
+    },
     "timezone": "Asia/Seoul",
-    "version": "2.6.0"
+    "version": "3.0.15"
 }
