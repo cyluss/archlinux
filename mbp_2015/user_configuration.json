@@ -5,9 +5,10 @@
     "config_version": "2.6.0",
     "debug": false,
     "disk_config": null,
-    "hostname": "archlinux",
+    "hostname": "mbp2015",
     "kernels": [
-        "linux"
+        "linux",
+        "linux-lts"
     ],
     "locale_config": {
         "kb_layout": "us",
@@ -35,7 +36,7 @@
         }
     },
     "network_config": {
-        "type": "iso"
+        "type": "nm"
     },
     "no_pkg_lookups": false,
     "ntp": true,
@@ -46,12 +47,16 @@
         "git",
         "i3",
         "ibus-hangul",
+        "iw",
+        "linux-firmware",
         "nano",
+        "openssh",
+        "wireless_tools",
         "xterm"
     ],
     "parallel downloads": 0,
     "profile_config": {
-        "gfx_driver": "VirtualBox (open-source)",
+        "gfx_driver": "Intel (open-source)",
         "greeter": null,
         "profile": {
             "custom_settings": {},
