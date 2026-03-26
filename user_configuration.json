@@ -45,28 +45,20 @@
     },
     "ntp": true,
     "packages": [
-        "alacritty",
         "base-devel",
-        "dmenu",
+        "bemenu-wayland",
         "git",
-        "i3",
+        "foot",
         "ibus-hangul",
         "nano",
         "noto-fonts-cjk",
         "openssh",
-        "ttf-dejavu",
-        "xterm"
+        "sway",
+        "swaybg",
+        "ttf-dejavu"
     ],
     "parallel_downloads": 0,
-    "profile_config": {
-        "gfx_driver": "VirtualBox (open-source)",
-        "greeter": null,
-        "profile": {
-            "custom_settings": {},
-            "details": [],
-            "main": "Xorg"
-        }
-    },
+    "profile_config": null,
     "script": "guided",
     "services": ["sshd"],
     "swap": {
