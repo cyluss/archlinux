@@ -5,7 +5,7 @@
 | | VM (VirtualBox) | MBP 2015 (bare metal) |
 |---|---|---|
 | **config** | [user_configuration.json](user_configuration.json) | [mbp_2015/user_configuration.json](mbp_2015/user_configuration.json) |
-| **gfx_driver** | VirtualBox (open-source) | Intel (open-source) |
+| **display** | sway (Wayland) | sway (Wayland) |
 | **network** | iso | nm (NetworkManager) |
 | **kernels** | linux | linux, linux-lts |
 | **extra packages** | -- | iw, linux-firmware, openssh, wireless_tools |
@@ -21,16 +21,8 @@
 3. Add user and disk config, and proceed
 4. No chroot, `reboot`
 5. Log in as user account
-
-### AUR packages
-1. `mkdir aur; cd aur`
-2. Install Chrome
-    1. `git clone https://aur.archlinux.org/google-chrome.git  && pushd "$_"`
-    2. `makepkg --syncdeps --install; popd`
-2. Install Spoqa Han Sans
-    1. `git clone https://aur.archlinux.org/spoqa-han-sans.git && pushd "$_"`
-    2. `makepkg --syncdeps --install; popd`
-3. ssh-keygen: `ssh-keygen -t ed25519 -a 100`
+6. `curl -sL https://cyluss.github.io/archlinux/setup.sh | bash`
+7. `sway`
 
 ### Backup / Restore
 ```bash
