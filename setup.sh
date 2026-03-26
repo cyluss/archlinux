@@ -7,11 +7,11 @@ BASE_URL="https://raw.githubusercontent.com/cyluss/archlinux/master"
 
 echo "=== dotfiles ==="
 mkdir -p ~/.config/sway ~/.config/foot
-curl -sL "$BASE_URL/dotfiles/.config/sway/config"              -o ~/.config/sway/config
-curl -sL "$BASE_URL/dotfiles/.config/sway/help-bar.py"         -o ~/.config/sway/help-bar.py
-curl -sL "$BASE_URL/dotfiles/.config/sway/i3status-wrapper.py" -o ~/.config/sway/i3status-wrapper.py
-curl -sL "$BASE_URL/dotfiles/.config/foot/foot.ini"            -o ~/.config/foot/foot.ini
-chmod +x ~/.config/sway/help-bar.py ~/.config/sway/i3status-wrapper.py
+curl -sL "$BASE_URL/dotfiles/.config/sway/config"      -o ~/.config/sway/config
+curl -sL "$BASE_URL/dotfiles/.config/sway/help-bar.py"  -o ~/.config/sway/help-bar.py
+curl -sL "$BASE_URL/dotfiles/.config/sway/status.py"    -o ~/.config/sway/status.py
+curl -sL "$BASE_URL/dotfiles/.config/foot/foot.ini"     -o ~/.config/foot/foot.ini
+chmod +x ~/.config/sway/help-bar.py ~/.config/sway/status.py
 
 echo "=== AUR packages ==="
 mkdir -p ~/aur && cd ~/aur
@@ -31,6 +31,10 @@ fi
 
 echo "=== locale ==="
 sudo localectl set-locale LANG=en_US.UTF-8
+
+echo "=== TTY light theme ==="
+sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"/GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet vt.default_red=255,204,0,128,0,128,0,0 vt.default_grn=255,0,128,128,0,0,128,0 vt.default_blu=255,0,0,0,204,128,128,0"/' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "=== done ==="
 echo "Run 'sway' to start"
