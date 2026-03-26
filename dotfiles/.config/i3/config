@@ -23,6 +23,7 @@ font pango:DejaVu Sans Mono Bold 8
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xsetroot -solid "#ffffff"
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -56,7 +57,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "#ffffff" -nf "#000000" -sb "#dddddd" -sf "#000000" -fn "DejaVu Sans Mono Bold-8"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -189,19 +190,32 @@ bindsym $mod+r mode "resize"
 
 # Light theme
 # class                 border  backgr. text    indicator child_border
-client.focused          #888888 #ffffff #000000 #2e9ef4   #888888
-client.focused_inactive #999999 #eeeeee #333333 #484e50   #999999
-client.unfocused        #999999 #f5f5f5 #555555 #292d2e   #999999
-client.urgent           #cc0000 #ffffff #cc0000 #cc0000   #cc0000
+client.focused          #dddddd #ffffff #000000 #2e9ef4   #dddddd
+client.focused_inactive #dddddd #f5f5f5 #333333 #484e50   #dddddd
+client.unfocused        #eeeeee #fafafa #888888 #292d2e   #eeeeee
+client.urgent           #eeeeee #ffffff #990000 #990000   #eeeeee
 bar {
-        status_command i3status
+        status_command i3status | /home/kang/.config/i3/i3status-wrapper.py
+        position top
         colors {
             background #ffffff
             statusline #000000
-            separator  #888888
-            focused_workspace  #888888 #ffffff #000000
-            active_workspace   #888888 #eeeeee #333333
-            inactive_workspace #999999 #f5f5f5 #000000
-            urgent_workspace   #990000 #ffffff #990000
+            separator  #dddddd
+            focused_workspace  #dddddd #ffffff #000000
+            active_workspace   #dddddd #f5f5f5 #333333
+            inactive_workspace #eeeeee #fafafa #888888
+            urgent_workspace   #eeeeee #ffffff #990000
         }
+}
+
+bar {
+        id bar-help
+        position bottom
+        status_command /home/kang/.config/i3/help-bar.py
+        colors {
+            background #ffffff
+            statusline #888888
+            separator  #dddddd
+        }
+        workspace_buttons no
 }
