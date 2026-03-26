@@ -7,7 +7,9 @@
         "removable": true,
         "uki": false
     },
-    "custom_commands": [],
+    "custom_commands": [
+        "echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /mnt/etc/sudoers.d/wheel"
+    ],
     "disk_config": null,
     "hostname": "archlinux",
     "kernels": [
