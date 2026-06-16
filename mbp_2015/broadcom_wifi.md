@@ -66,6 +66,7 @@ sudo pacman -S linux-firmware                   # provides brcmfmac firmware
 Create `/etc/modprobe.d/broadcom-blacklist.conf`:
 
 ```
+blacklist wl
 blacklist bcma
 blacklist b43
 blacklist b43legacy
@@ -74,7 +75,7 @@ blacklist brcmsmac
 blacklist ndiswrapper
 ```
 
-`bcma` is the most critical one -- it interferes with brcmfmac device initialization.
+`wl` is the most critical one -- the Broadcom proprietary driver loads alongside brcmfmac on the live ISO and causes WiFi drops within 1 minute. If `wl` is already loaded, remove it first: `rmmod wl`.
 
 ### 3. Configure brcmfmac module parameters
 
@@ -299,7 +300,7 @@ python fix_wifi.py --debug
 
 1. Remove `broadcom-wl` / `broadcom-wl-dkms`
 2. Install `linux-firmware`
-3. Blacklist `bcma`, `b43`, `b43legacy`, `ssb`, `brcmsmac`, `ndiswrapper`
+3. Blacklist `wl`, `bcma`, `b43`, `b43legacy`, `ssb`, `brcmsmac`, `ndiswrapper`
 4. Set `options brcmfmac feature_disable=0x82000 roamoff=1`
 5. Disable NetworkManager WiFi powersave (`wifi.powersave = 2`)
 6. Disable MAC randomization

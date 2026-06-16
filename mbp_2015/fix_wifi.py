@@ -33,7 +33,9 @@ def remove_conflicting_drivers():
 
 def blacklist_modules():
     print("\n[2/7] Blacklisting conflicting modules...")
+    run("rmmod wl 2>/dev/null || true", check=False)
     write_file("/etc/modprobe.d/broadcom-blacklist.conf", """\
+blacklist wl
 blacklist bcma
 blacklist b43
 blacklist b43legacy
