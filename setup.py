@@ -19,6 +19,8 @@ BASE_URL = "https://raw.githubusercontent.com/cyluss/archlinux/master"
 
 DOTFILES = [
     ".config/sway/config",
+    ".config/sway/brightness.py",
+    ".config/sway/volume.py",
     ".config/sway/help-bar.py",
     ".config/sway/status.py",
     ".config/foot/foot.ini",

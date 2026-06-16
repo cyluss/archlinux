@@ -45,8 +45,8 @@ output * bg #ffffff solid_color
 # nm-applet not needed
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec python3 ~/.config/sway/volume.py up
+bindsym XF86AudioLowerVolume exec python3 ~/.config/sway/volume.py down
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86MonBrightnessUp exec python3 ~/.config/sway/brightness.py up
 bindsym XF86MonBrightnessDown exec python3 ~/.config/sway/brightness.py down
