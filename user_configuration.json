@@ -11,7 +11,7 @@
         "echo '%wheel ALL=(ALL) NOPASSWD: ALL' > /mnt/etc/sudoers.d/wheel"
     ],
     "disk_config": null,
-    "hostname": "archlinux",
+    "hostname": "vm",
     "kernels": [
         "linux"
     ],
