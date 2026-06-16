@@ -9,7 +9,7 @@
 | **network** | iso | nm (NetworkManager) |
 | **kernels** | linux | linux, linux-lts |
 | **extra packages** | -- | iw, linux-firmware, wireless_tools |
-| **post-install** | -- | [fix_wifi.py](mbp_2015/fix_wifi.py) |
+| **post-install** | -- | [fix_wifi.py](mbp_2015/fix_wifi.py), cpu-performance.service |
 | **hostname** | archlinux | mbp2015 |
 | **dd portable** | within same VM type | within same MBP |
 
