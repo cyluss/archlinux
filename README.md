@@ -27,7 +27,7 @@
 3. Disk + user config, proceed
 4. No chroot, `reboot`, remove ISO
 5. Login, mount USB: `mount /dev/sda1 /mnt`
-6. `bash /mnt/archlinux/setup.sh`
+6. `python3 /mnt/archlinux/setup.py` (or `setup.py mbp`)
 7. `sway`
 
 ### Reprovision
@@ -39,7 +39,7 @@ Boot USB, repeat from step 2.
 ```bash
 archinstall --config-url https://cyluss.github.io/archlinux/user_configuration.json
 # reboot, then:
-curl -sL cyluss.github.io/archlinux/setup.sh | bash
+curl -sL cyluss.github.io/archlinux/setup.py | python3
 sway
 ```
 
@@ -47,7 +47,7 @@ sway
 ```bash
 archinstall --config-url https://cyluss.github.io/archlinux/mbp_2015/user_configuration.json
 # reboot, then:
-SKU_CUSTOM=mbp_2015/setup_custom.sh curl -sL cyluss.github.io/archlinux/setup.sh | bash
+curl -sL cyluss.github.io/archlinux/setup.py | python3 - mbp
 sway
 ```
 
