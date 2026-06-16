@@ -32,6 +32,7 @@ font pango:DejaVu Sans Mono Bold 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # exec --no-startup-id dex --autostart --environment i3
 output * bg #ffffff solid_color
+exec fcitx5 -r
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -65,7 +66,7 @@ bindsym $mod+Return exec foot
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec bemenu-run --tb "#ffffff" --tf "#000000" --fb "#ffffff" --ff "#000000" --nb "#ffffff" --nf "#000000" --hb "#dddddd" --hf "#000000" --fn "DejaVu Sans Mono Bold 8"
+bindsym Ctrl+space exec bemenu-run --tb "#ffffff" --tf "#000000" --fb "#ffffff" --ff "#000000" --nb "#ffffff" --nf "#000000" --hb "#dddddd" --hf "#000000" --fn "DejaVu Sans Mono Bold 8"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -114,7 +115,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -205,6 +206,7 @@ client.urgent           #eeeeee #ffffff #990000 #990000   #eeeeee
 bar {
         status_command /home/kang/.config/sway/status.py
         position top
+        tray_output none
         colors {
             background #ffffff
             statusline #000000
