@@ -119,6 +119,13 @@ def sku_mbp(usb_dir):
         run(f"curl -sL {BASE_URL}/mbp_2015/fix_wifi.py -o /tmp/fix_wifi.py")
         run("sudo python3 /tmp/fix_wifi.py")
 
+    print("\n=== [mbp] GRUB HiDPI font ===")
+    run("sudo grub-mkfont -s 36 -o /boot/grub/fonts/DejaVuSansMono36.pf2 "
+        "/usr/share/fonts/TTF/DejaVuSansMono.ttf")
+    run("sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE=1024x768/' /etc/default/grub")
+    run("echo 'GRUB_FONT=/boot/grub/fonts/DejaVuSansMono36.pf2' | sudo tee -a /etc/default/grub")
+    run("sudo grub-mkconfig -o /boot/grub/grub.cfg")
+
     print("\n=== [mbp] CPU base clock fix ===")
     write_file("/tmp/cpu-performance.service", """\
 [Unit]
