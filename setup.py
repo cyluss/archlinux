@@ -104,7 +104,8 @@ def setup_tty_theme():
         "GRUB_CMDLINE_LINUX_DEFAULT=\"loglevel=3 quiet "
         "vt.default_red=255,204,0,128,0,128,0,0 "
         "vt.default_grn=255,0,128,128,0,0,128,0 "
-        "vt.default_blu=255,0,0,0,204,128,128,0\"/' "
+        "vt.default_blu=255,0,0,0,204,128,128,0 "
+        "vt.cur_default=1\"/' "
         "/etc/default/grub")
     run("sudo grub-mkconfig -o /boot/grub/grub.cfg")
 
