@@ -222,15 +222,3 @@ bar {
             urgent_workspace   #eeeeee #ffffff #990000
         }
 }
-
-bar {
-        id bar-help
-        position bottom
-        status_command /home/kang/.config/sway/help-bar
-        colors {
-            background #ffffff
-            statusline #888888
-            separator  #dddddd
-        }
-        workspace_buttons no
-}
