@@ -36,6 +36,7 @@ font pango:DejaVu Sans Mono Bold 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 # exec --no-startup-id dex --autostart --environment i3
 output * bg #ffffff solid_color
+output * scale 1.8
 exec fcitx5 -r
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
