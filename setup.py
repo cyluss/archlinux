@@ -99,6 +99,19 @@ def setup_locale():
     run("sudo localectl set-locale LANG=en_US.UTF-8")
 
 
+def setup_zram():
+    print("\n=== zram swap ===")
+    run("sudo pacman -S --noconfirm zram-generator", check=False)
+    write_file("/tmp/zram-generator.conf", """\
+[zram0]
+zram-size = ram / 2
+compression-algorithm = zstd
+""")
+    run("sudo cp /tmp/zram-generator.conf /etc/systemd/zram-generator.conf")
+    run("sudo systemctl daemon-reload")
+    run("sudo systemctl start systemd-zram-setup@zram0.service", check=False)
+
+
 def setup_tty_theme():
     print("\n=== TTY light theme ===")
     run("sudo sed -i "
@@ -167,6 +180,7 @@ def main():
     install_aur(usb_dir)
     setup_ssh()
     setup_locale()
+    setup_zram()
     setup_tty_theme()
 
     if args.sku and args.sku in SKU_HANDLERS:
