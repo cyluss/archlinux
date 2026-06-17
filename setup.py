@@ -21,8 +21,8 @@ DOTFILES = [
     ".config/sway/config",
     ".config/sway/brightness.py",
     ".config/sway/volume.py",
-    ".config/sway/help-bar.py",
-    ".config/sway/status.py",
+    ".config/sway/help-bar.c",
+    ".config/sway/status.c",
     ".config/foot/foot.ini",
 ]
 
@@ -64,6 +64,10 @@ def install_dotfiles(usb_dir):
         dest = home / f
         if dest.suffix == ".py":
             dest.chmod(0o755)
+        elif dest.suffix == ".c":
+            out = dest.with_suffix("")
+            run(f'gcc -O2 -o "{out}" "{dest}"')
+            print(f"  compiled {out.name}")
 
 
 def install_aur(usb_dir):

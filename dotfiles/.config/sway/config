@@ -209,7 +209,7 @@ client.focused_inactive #dddddd #f5f5f5 #333333 #484e50   #dddddd
 client.unfocused        #eeeeee #fafafa #888888 #292d2e   #eeeeee
 client.urgent           #eeeeee #ffffff #990000 #990000   #eeeeee
 bar {
-        status_command /home/kang/.config/sway/status.py
+        status_command /home/kang/.config/sway/status
         position top
         tray_output none
         colors {
@@ -226,7 +226,7 @@ bar {
 bar {
         id bar-help
         position bottom
-        status_command /home/kang/.config/sway/help-bar.py
+        status_command /home/kang/.config/sway/help-bar
         colors {
             background #ffffff
             statusline #888888
