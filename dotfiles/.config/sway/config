@@ -13,6 +13,10 @@ set $mod Mod4
 default_orientation horizontal
 default_border pixel 0
 
+input type:keyboard {
+    xkb_options caps:ctrl_modifier
+}
+
 input "1452:627:bcm5974" {
     pointer_accel 0
     scroll_factor 0.25
@@ -76,7 +80,7 @@ bindsym Ctrl+space exec bemenu-run --tb "#ffffff" --tf "#000000" --fb "#ffffff" 
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+bindsym $mod+l exec wtype -M ctrl -k l -m ctrl
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -101,7 +105,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
