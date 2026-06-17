@@ -112,6 +112,22 @@ compression-algorithm = zstd
     run("sudo systemctl start systemd-zram-setup@zram0.service", check=False)
 
 
+def setup_memory():
+    print("\n=== memory tuning ===")
+    write_file("/tmp/99-memory.conf", """\
+vm.swappiness=150
+vm.vfs_cache_pressure=50
+""")
+    run("sudo cp /tmp/99-memory.conf /etc/sysctl.d/99-memory.conf")
+    run("sudo sysctl --system")
+
+
+def setup_services():
+    print("\n=== disable unnecessary services ===")
+    run("sudo systemctl disable NetworkManager-wait-online.service", check=False)
+    run("sudo systemctl disable NetworkManager-dispatcher.service", check=False)
+
+
 def setup_tty_theme():
     print("\n=== TTY light theme ===")
     run("sudo sed -i "
@@ -181,6 +197,8 @@ def main():
     setup_ssh()
     setup_locale()
     setup_zram()
+    setup_memory()
+    setup_services()
     setup_tty_theme()
 
     if args.sku and args.sku in SKU_HANDLERS:
