@@ -51,14 +51,29 @@ curl -sL cyluss.github.io/archlinux/setup.py | python3 - mbp
 sway
 ```
 
-## Backup / Restore
-```bash
-# Backup
-dd if=/dev/sda bs=4M | zstd | aws s3 cp - s3://bucket/<sku>.img.zst
+## Backup / Restore (restic → S3)
 
-# Restore (from live USB)
-aws s3 cp s3://bucket/<sku>.img.zst - | zstd -d | dd of=/dev/sda bs=4M
+Daily automated backup via systemd timer. Encrypted, deduplicated, incremental.
+
+```bash
+# Manual backup
+~/.config/restic/backup.sh
+
+# List snapshots
+restic snapshots  # (with env vars from backup.sh)
+
+# Restore from archiso (USB with secrets/ and rootkey.csv)
+mount /dev/sdb1 /mnt/usb
+python3 /mnt/usb/archlinux/restore.py /mnt/home/kang
+
+# Restore: list snapshots only
+python3 restore.py --list
+
+# Restore: specific snapshot
+python3 restore.py --snapshot abc123 /mnt/home/kang
 ```
+
+Secrets on USB: `secrets/restic-password-<hostname>`, `rootkey.csv`
 
 ## Docs
 - [Broadcom WiFi fix](mbp_2015/broadcom_wifi.md) -- BCM43602 stabilization, TB Ethernet debugging
