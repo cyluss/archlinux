@@ -75,5 +75,8 @@ python3 restore.py --snapshot abc123 /mnt/home/kang
 
 Secrets on USB: `secrets/restic-password-<hostname>`, `rootkey.csv`
 
+## TODO
+- [ ] Convert ext4 → btrfs for snapshot/revert (boot archiso, `btrfs-convert /dev/sda3`, update fstab + grub)
+
 ## Docs
 - [Broadcom WiFi fix](mbp_2015/broadcom_wifi.md) -- BCM43602 stabilization, TB Ethernet debugging
